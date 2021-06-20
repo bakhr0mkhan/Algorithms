@@ -32,4 +32,4 @@ q.enqueue("c");
 console.log(q.print());
 q.dequeue();
 console.log(q.front());
-console.log(q.print());
+console.log(q.print())
