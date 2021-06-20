@@ -41,6 +41,25 @@ class linkedList {
       this.tail = currentNode;
     }
   }
+  //   find to get a specific element in the list
+  find(value) {
+    if (!this.head) return null;
+    let currentNode = this.head;
+
+    while (currentNode) {
+      if (currentNode.value === value) return currentNode;
+      currentNode = currentNode.next;
+    }
+    return null;
+  }
+  //   insert after to create a new element after a specific element
+  insertAfter(value, afterValue) {
+    let existingNode = this.find(afterValue);
+    if (existingNode) {
+      const newNode = { value, next: afterValue.next };
+      existingNode.next = newNode;
+    }
+  }
   // to return all values
   toArray() {
     let elements = [];
@@ -71,4 +90,13 @@ firstList.delete(1);
 firstList.delete(11);
 firstList.delete(14);
 
+console.log(firstList.toArray());
+
+console.log(firstList.find(12));
+console.log(firstList.find(13));
+console.log(firstList.find(14));
+
+console.log(firstList.insertAfter(17, 13));
+console.log(firstList.insertAfter("new value", 17));
+console.log(firstList.insertAfter("new 2", "new value"));
 console.log(firstList.toArray());
